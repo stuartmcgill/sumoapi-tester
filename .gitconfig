@@ -1,0 +1,26 @@
+[user]
+    email = stueymcgill@gmail.com
+    name = Stuart McGill
+[core]
+    excludesfile = /home/stuartmcgill/.gitignore_global
+    editor = codium --wait
+	autocrlf = input
+[diff]
+    tool = kdiff3
+[push]
+    followTags = true
+[pull]
+    ff = true
+    rebase = false
+[merge]
+    tool = kdiff3
+    ff = false
+[mergetool "kdiff3"]
+    keepBackup = false
+    keepbackup = false
+    trustExitCode = false
+[commit]
+   verbose = true
+[alias]
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
