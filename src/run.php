@@ -42,3 +42,6 @@ echo 'Fetched details for ' . count($someRikishi) . " Makuuchi wrestlers\n";
 
 $rikishisFromThePast = $bashoService->fetchRikishiIdsByBasho(2019, 3, 'Makuuchi');
 echo 'Rikishi IDs from March 2019 are ' . implode(',', $rikishisFromThePast) . "\n";
+
+$matchupSummary = $rikishiService->fetchMatchups(1, [2]);
+echo 'Takakeisho has fought Asanoyama ' . $matchupSummary->matchups[0]->total() . ' times';
