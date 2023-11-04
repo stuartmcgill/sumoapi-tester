@@ -51,4 +51,4 @@ echo 'Fetched details for ' . count($someRikishi) . " Makuuchi wrestlers\n";
 
 // Fetch rikishi matchups (head-to-heads)
 $matchupSummary = $rikishiService->fetchMatchups(1, [2]);
-echo 'Takakeisho has fought Asanoyama ' . $matchupSummary->matchups[0]->total() . ' times';
+echo 'Takakeisho has fought Asanoyama ' . $matchupSummary->matchups[0]->total() . " times\n";

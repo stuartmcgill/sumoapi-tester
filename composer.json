@@ -13,6 +13,7 @@
         }
     ],
     "require": {
+        "php": ">=8.2",
         "stuartmcgill/sumoapi-php": "dev-main"
     }
 }
