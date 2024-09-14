@@ -57,4 +57,9 @@ echo 'Takakeisho has fought Asanoyama ' . $matchupSummary->matchups[0]->total() 
 
 // Fetch last three matches where the kimarite was yorikiri
 $matches = $kimariteService->fetchByType(type: 'yorikiri', sortOrder: 'desc', limit: 3, skip: 0);
-echo 'The last three matches where the kimarite was yorikiri are ' . implode(',', $matches) . "\n";
+
+foreach ($matches as $match) {
+    $loser = $match->loserEn();
+    echo "$match->winnerEn defeated $loser by yorikiri in $match->division "
+        . "on day $match->day of the $match->bashoId basho.\n";
+}
