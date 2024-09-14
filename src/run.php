@@ -10,10 +10,12 @@ require __DIR__ . '/../vendor/autoload.php';
 use StuartMcGill\SumoApiPhp\Model\Rikishi;
 use StuartMcGill\SumoApiPhp\Model\RikishiMatch;
 use StuartMcGill\SumoApiPhp\Service\BashoService;
+use StuartMcGill\SumoApiPhp\Service\KimariteService;
 use StuartMcGill\SumoApiPhp\Service\RikishiService;
 
 $bashoService = BashoService::factory();
 $rikishiService = RikishiService::factory();
+$kimariteService = KimariteService::factory();
 
 // Fetch rikishis from a particular basho
 $rikishisFromThePast = $bashoService->fetchRikishiIdsByBasho(2019, 3, 'Makuuchi');
@@ -52,3 +54,7 @@ echo 'Fetched details for ' . count($someRikishi) . " Makuuchi wrestlers\n";
 // Fetch rikishi matchups (head-to-heads)
 $matchupSummary = $rikishiService->fetchMatchups(1, [2]);
 echo 'Takakeisho has fought Asanoyama ' . $matchupSummary->matchups[0]->total() . " times\n";
+
+// Fetch last three matches where the kimarite was yorikiri
+$matches = $kimariteService->fetchByType(type: 'yorikiri', sortOrder: 'desc', limit: 3, skip: 0);
+echo 'The last three matches where the kimarite was yorikiri are ' . implode(',', $matches) . "\n";
